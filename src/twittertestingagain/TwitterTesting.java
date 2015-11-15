@@ -61,7 +61,7 @@ public class TwitterTesting {
     
    /*----------------------------------Search Parameters-------------------------------------*/ 
             
-            String search = "food";
+            String search = "chinese food";
             String lang = "en";           
    /*------------------------End Search Parameters----------------------------------------*/
             
