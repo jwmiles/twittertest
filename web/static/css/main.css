@@ -1,0 +1,26 @@
+
+#results {
+  padding:0; 
+  margin:0;
+}
+#results li {
+  list-style-type:none;
+  padding: 15px 5px;
+  border: solid 1px #555;
+  border-top: none;
+  max-width: 600px;
+}
+#results li:first-child {
+  border-top : solid 1px #555;
+}
+#results li:hover{
+  box-shadow: 0px 0px 7px 1px #555;
+  background-color: #FAFAFA;
+}
+#results li .heading{
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+span.label {
+  font-weight: bold;
+}
