@@ -1,0 +1,46 @@
+<h1>Twitter Search</h1>
+
+<form action="/" method="POST">
+  <div>
+    <label>
+      Search Twitter for tweets containing... <br>
+      <input type="text" name="match">
+    </label>
+  </div>
+  <input type="submit" value="Submit">
+</form>
+
+<hr />
+{{#if results}}
+  <h2>Query</h2>
+  <div><span class="label">query:</span> {{ search.query }}</div>
+  <en><span class="label">completed in:</span> {{ search.completed_in }}</en>
+  <h2>Results</h2>
+
+  <ul id='results'>
+  {{#each results}}
+    <li>
+      <div class='heading'>
+        <div><span class="label">Created on:</span> {{ this.created_at }}</div>
+        <div><span class="label">Author:</span> {{ this.user.screen_name }}</div>
+      </div>
+
+      <div><span class="label">Message:</span> <p>{{ this.text }}</p></div>
+
+      <div><span class="label">Retweets:</span> {{ this.retweet_count }} | <span class="label">Favorites:</span> {{ this.favorite_count }}</div>
+      <div>
+      {{#if entities.hashtags}}
+        <span class="label">Hashtags:</span>
+        {{#each entities.hashtags}}
+        <span>#{{this.text}} </span>
+        {{/each}}
+      {{else}}
+        <span class="label">No Hashtags</span>
+      {{/if}}
+      </div>
+    </li>
+  {{/each}}
+  </ul>
+{{else}}
+  <p>Search for matching words above!</p>
+{{/if}}
