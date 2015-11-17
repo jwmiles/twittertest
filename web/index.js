@@ -47,7 +47,7 @@ app.get('/api', function(req, res){
 
 //POST for results
 app.post('/', function (req, res) {
-  client.get('search/tweets', {q: req.body.match}, function(error, tweets, response){
+  client.get('search/tweets', {q: req.body.match, lang: req.body.lang, count: 100},  function(error, tweets, response){
     if(error){
       res.status(400).send('There was an error.', error);
     }

@@ -1,11 +1,29 @@
 <h1>Twitter Search</h1>
-
+{{ var count = 0}}
 <form action="/" method="POST">
   <div>
     <label>
       Search Twitter for tweets containing... <br>
       <input type="text" name="match">
     </label>
+	<br><br><br>
+	
+	  
+	 
+		<div>
+		<label>
+      Please select a language to search in<br>
+	  </label>	
+		<select name = "lang">
+	<option value="en">English</option>
+	<option value="es">Spanish</option>
+	<option value="de">German</option>
+	<option value="fr">French</option>
+	<option value="it">Italian</option>
+	</select>
+	
+	<br><br><br><br>
+	
   </div>
   <input type="submit" value="Submit">
 </form>
@@ -25,7 +43,7 @@
         <div><span class="label">Author:</span> {{ this.user.screen_name }}</div>
       </div>
 
-      <div><span class="label">Message:</span> <p>{{ this.text }}</p></div>
+      <div><span class="label">Message:</span> <p>{{ this.text }} </p></div>
 
       <div><span class="label">Retweets:</span> {{ this.retweet_count }} | <span class="label">Favorites:</span> {{ this.favorite_count }}</div>
       <div>
