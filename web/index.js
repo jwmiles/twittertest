@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
+
 // Set static folder
 app.use(express.static('static'));
 
@@ -38,6 +39,11 @@ app.get('/', function(req, res){;
   res.render('index', {});
 });
 
+//Summary Page
+app.get('/summary', function(req, res) {;
+ res.render ('summary' , {});
+});
+
 //API view
 app.get('/api', function(req, res){
    client.get('search/tweets', {q: 'node.js'}, function(error, tweets, response){
@@ -47,7 +53,7 @@ app.get('/api', function(req, res){
 
 //POST for results
 app.post('/', function (req, res) {
-  client.get('search/tweets', {q: req.body.match, lang: req.body.lang, count: 100},  function(error, tweets, response){
+  client.get('search/tweets', {q: req.body.match, geocode : req.body.country, lang: req.body.lang, count: 100},  function(error, tweets, response){
     if(error){
       res.status(400).send('There was an error.', error);
     }
